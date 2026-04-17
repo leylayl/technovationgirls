@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&U | Startup Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <aside class="side-navigation">
+        <div class="nav-top">
+            <a href="{{ url_for('role_page') }}" class="nav-btn active" title="Home">
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="{{ url_for('settings') }}" class="nav-btn" title="Settings">
+                <i class="fa-solid fa-sliders"></i>
+            </a>
+            <a href="{{ url_for('notifications') }}" class="nav-btn" title="Notifications">
+                <i class="fa-solid fa-bell"></i>
+            </a>
+        </div>
+
+        <div class="nav-bottom">
+            <a href="{{ url_for('support') }}" class="nav-btn" title="Support">
+                <i class="fa-solid fa-headset"></i>
+            </a>
+            
+            <div class="system-indicator">
+                <div class="dot-active"></div>
+            </div>
+            
+            <button class="nav-btn ghost-mode">
+                <i class="fa-solid fa-ghost"></i>
+            </button>
+        </div>
+    </aside>
+    <div class="top-user-bar">
+    <div class="user-info">
+        <i class="fa-solid fa-user-astronaut"></i>
+        <span>{{ session.get('user_name', 'Guest') }}</span>
+    </div>
+    
+    <a href="{{ url_for('logout') }}" class="logout-link">
+        <i class="fa-solid fa-right-from-bracket"></i> Exit
+    </a>
+</div>
+    <div class="brand-logo">S&U</div>
+
+    <main class="container">
+        <div class="glass-card">
+            <h1>Welcome, Founder!</h1>
+            <p class="subtitle">Ready to bring your vision to life?</p>
+
+            <div class="language-options"> 
+                <a href="{{ url_for('create_project') }}" class="btn-lang">
+                    <div class="card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    Create Project
+                    <span>Build a new pitch deck</span>
+                </a>
+            </div>
+            <a href="{{ url_for('upload_project') }}" class="btn-lang">
+    <div class="card-icon">
+        <i class="fa-solid fa-file-arrow-up"></i>
+    </div>
+    Upload Project
+    <span>Already have a project? Upload here</span>
+</a>
+
+            <div style="margin-top: 30px;">
+                <a href="{{ url_for('role_page') }}" class="btn-back">← Back to roles</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

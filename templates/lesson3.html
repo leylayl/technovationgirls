@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&U | Lesson 3: Brainstorming</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=8.0">
+</head>
+<body class="investor-screen">
+
+    <div class="screen-wrapper">
+        <header class="app-header-center">
+            <a href="{{ url_for('curriculum') }}" class="btn-nav-block btn-left">
+                <i class="fa-solid fa-arrow-left"></i> CURRICULUM
+            </a>
+            <div class="brand-logo-glowing">S&U</div>
+            <div class="btn-right" style="width: 120px;"></div>
+        </header>
+
+        <main class="centered-content">
+            <div class="glass-card lesson-content-card animate-fade-in teal-theme">
+                
+                <div class="lesson-header">
+                    <span class="category-tag" style="color: #00e5ff;">Ideation Phase</span>
+                    <h1 class="title-gradient">BRAINSTORMING</h1>
+                    <p class="subtitle">Generating a ocean of ideas</p>
+                </div>
+
+                <div class="lesson-scroll-area">
+                    <div class="intro-text" style="margin-bottom: 30px; text-align: center; color: rgba(255,255,255,0.8);">
+                        <p>After observing your communities, you might have identified some problems. Let's process them through brainstorming.</p>
+                    </div>
+
+                    <div class="info-grid-lesson">
+                        <div class="info-box-mini sticky-style-1">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <h4>The Goal</h4>
+                            <p>Brainstorming is a group activity meant to generate a large number of ideas in a short time.</p>
+                        </div>
+
+                        <div class="info-box-mini sticky-style-2">
+                            <i class="fa-solid fa-shield-heart"></i>
+                            <h4>Safety First</h4>
+                            <p>As you brainstorm, you might feel vulnerable. <strong>This is normal!</strong> No idea is a bad idea at this stage.</p>
+                        </div>
+                    </div>
+
+                    <div class="pro-tip-box" style="border-left-color: #00e5ff; background: rgba(0, 229, 255, 0.05);">
+                        <i class="fa-solid fa-people-group" style="color: #00e5ff;"></i>
+                        <p><strong>Collaborate & Innovate:</strong> The best solutions are born where different perspectives meet.</p>
+                    </div>
+
+                    <div class="lesson-navigation" style="margin-top: 40px; display: flex; justify-content: space-between;">
+                        <a href="{{ url_for('lesson2') }}" class="btn-nav-block" style="position:relative; transform:none; left:0; opacity:0.8;">
+                            <i class="fa-solid fa-chevron-left"></i> PREVIOUS
+                        </a>
+                        <a href="{{ url_for('lesson4') }}" class="btn-main-neon" style="text-decoration: none; padding: 12px 25px; font-size: 0.9rem; border-color: #00e5ff; color: #00e5ff;">
+                            NEXT LESSON: 04 <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

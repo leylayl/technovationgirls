@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&U | Loading...</title>
+    
+    <meta http-equiv="refresh" content="5;url={{ url_for('welcome') }}">
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: #050a05; /* Черный фон */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .splash-container {
+            text-align: center;
+            animation: fadeOut 0.8s ease-in forwards 4.2s; /* Исчезновение в конце */
+        }
+
+        /* НАСТРОЙКИ ТВОЕГО БОЛЬШОГО ЛОГОТИПА */
+        .mega-logo {
+            width: 450px; /* Сделали логотип большим! Можешь менять от 300 до 600 */
+            height: auto;
+            /* Эффект свечения для картинки (зеленый неон) */
+            filter: drop-shadow(0 0 20px rgba(12, 185, 116, 0.8)) 
+                    drop-shadow(0 0 45px rgba(12, 185, 116, 0.4));
+            
+            /* Анимация появления */
+            animation: logoAppear 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            opacity: 0;
+            transform: scale(0.7);
+        }
+
+        /* Полоска загрузки снизу */
+        .loader-line {
+            width: 250px;
+            height: 2px;
+            background: rgba(255,255,255,0.05);
+            margin: 30px auto 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .loader-fill {
+            width: 0%;
+            height: 100%;
+            background: #0cb974;
+            box-shadow: 0 0 10px #0cb974;
+            animation: fillProgress 5s linear forwards;
+        }
+
+        /* --- Анимации --- */
+        @keyframes logoAppear {
+            0% { opacity: 0; transform: scale(0.7) translateY(30px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        @keyframes fillProgress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="splash-container">
+        <img src="{{ url_for('static', filename='logo.jpg') }}" alt="S&U Logo" class="mega-logo">
+        
+        <div class="loader-line">
+            <div class="loader-fill"></div>
+        </div>
+    </div>
+
+</body>
+</html>

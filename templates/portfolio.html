@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&U | My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=7.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sidebar.css') }}?v=2.0">
+</head>
+<body class="investor-screen">
+
+    <aside class="side-navigation">
+        <div class="nav-spacer"></div>
+
+        <div class="nav-center-group">
+            <a href="{{ url_for('role_page') }}" class="nav-btn active" title="Home">
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="{{ url_for('settings') }}" class="nav-btn" title="Settings">
+                <i class="fa-solid fa-sliders"></i>
+            </a>
+            <a href="{{ url_for('notifications') }}" class="nav-btn" title="Notifications">
+                <i class="fa-solid fa-bell"></i>
+            </a>
+        </div>
+
+        <div class="nav-bottom-group">
+            <a href="{{ url_for('support') }}" class="nav-btn" title="Support">
+                <i class="fa-solid fa-headset"></i>
+            </a>
+            
+            <div class="system-indicator">
+                <div class="dot-active"></div>
+            </div>
+            
+            <button class="nav-btn ghost-mode" title="Ghost Mode">
+                <i class="fa-solid fa-ghost"></i>
+            </button>
+        </div>
+    </aside>
+
+    <div class="screen-wrapper">
+        
+        <div class="top-user-bar">
+            <div class="user-info">
+                <i class="fa-solid fa-user-astronaut"></i>
+                <span>{{ session.get('user_name', 'Guest') }}</span>
+            </div>
+            <a href="{{ url_for('logout') }}" class="logout-link">
+                <i class="fa-solid fa-right-from-bracket"></i> Exit
+            </a>
+        </div>
+
+        <header class="app-header-center">
+            <a href="{{ url_for('dashboard_investor') }}" class="btn-nav-block btn-left">
+                <i class="fa-solid fa-arrow-left"></i> BACK
+            </a>
+            
+            <div class="brand-logo-glowing">S&U</div>
+
+            <div class="btn-nav-block btn-right" style="opacity: 0.5; pointer-events: none;">
+                MY ASSETS <i class="fa-solid fa-wallet"></i>
+            </div>
+        </header>
+
+        <main class="centered-content">
+            <div class="portfolio-header animate-fade-in">
+                <h1 class="title-gradient">Investment Portfolio</h1>
+                <p class="subtitle">Track your assets and performance</p>
+            </div>
+
+            <div class="stats-grid animate-fade-in">
+                <div class="glass-card stat-card">
+                    <span class="stat-label">Total Invested</span>
+                    <span class="stat-value">$170,000</span>
+                </div>
+                <div class="glass-card stat-card">
+                    <span class="stat-label">Active Projects</span>
+                    <span class="stat-value">3</span>
+                </div>
+            </div>
+
+            <div class="projects-grid animate-fade-in">
+                <div class="glass-card project-card portfolio-item">
+                    <div class="status-badge">ACTIVE</div>
+                    <h3>EcoEnergy Startup</h3>
+                    <p>Investment: $50,000 (10%)</p>
+                </div>
+
+                <div class="glass-card project-card portfolio-item">
+                    <div class="status-badge">ACTIVE</div>
+                    <h3>AI Medical Assistant</h3>
+                    <p>Investment: $120,000 (15%)</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

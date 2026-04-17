@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&U | Startup Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=8.0">
+</head>
+<body class="investor-screen">
+
+    <div class="screen-wrapper">
+        <header class="app-header-center">
+            <div class="top-user-bar">
+    <div class="user-info">
+        <i class="fa-solid fa-user-astronaut"></i>
+        <span>{{ session.get('user_name', 'Guest') }}</span>
+    </div>
+    
+    <a href="{{ url_for('logout') }}" class="logout-link">
+        <i class="fa-solid fa-right-from-bracket"></i> Exit
+    </a>
+</div>
+            <a href="{{ url_for('dashboard_startup') }}" class="btn-nav-block btn-left">
+                <i class="fa-solid fa-arrow-left"></i> BACK
+            </a>
+            <div class="brand-logo-glowing">S&U</div>
+            <div class="btn-nav-block btn-right" style="opacity: 0.7;">8 LESSONS</div>
+        </header>
+
+        <main class="centered-content">
+            <div class="investor-header animate-fade-in">
+                <h1>Startup Curriculum</h1>
+                <p class="subtitle">From identifying a problem to a solid business plan</p>
+            </div>
+
+            <div class="projects-grid animate-fade-in">
+                
+                <div class="glass-card project-card">
+                    <div class="card-tag">STEP 1</div>
+                    <h3>Identifying problems</h3>
+                    <p>Learn how to spot real-world issues that need solving.</p>
+                    <a href="{{ url_for('lesson1') }}" class="btn-main">START</a>
+                </div>
+
+                <div class="glass-card project-card">
+                    <div class="card-tag">STEP 2</div>
+                    <h3>Researching problems</h3>
+                    <p>Deep dive into market analysis and user pain points.</p>
+                    <a href="{{ url_for('lesson2') }}" class="btn-main">START</a>
+                </div>
+
+                <div class="glass-card project-card">
+                    <div class="card-tag">STEP 3</div>
+                    <h3>Partnering with organizations</h3>
+                    <p>Building strategic alliances for your startup.</p>
+                    <a href="{{ url_for('lesson3') }}" class="btn-main">START</a>
+                </div>
+
+                <div class="glass-card project-card">
+                    <div class="card-tag">STEP 4</div>
+                    <h3>Selecting a problem</h3>
+                    <p>Focusing on the most viable opportunity.</p>
+                    <a href="{{ url_for('lesson4') }}" class="btn-main">START</a>
+                </div>
+
+                <div class="glass-card project-card">
+                    <div class="card-tag">STEP 5</div>
+                    <h3>Identifying solutions</h3>
+                    <p>Brainstorming and validating your product idea.</p>
+                    <a href="{{ url_for('lesson5') }}" class="btn-main">START</a>
+                </div>
+
+                <div class="glass-card project-card">
+                    <div class="card-tag">STEP 6</div>
+                    <h3>Minimum Viable Product</h3>
+                    <p>Building the first version of your product (MVP).</p>
+                    <a href="{{ url_for('lesson6') }}" class="btn-main">START</a>
+                </div>
+
+                <div class="glass-card project-card">
+                    <div class="card-tag">STEP 7</div>
+                    <h3>Planning your project</h3>
+                    <p>Roadmaps, milestones, and team management.</p>
+                    <a href="{{ url_for('lesson7') }}" class="btn-main">START</a>
+                </div>
+
+                <div class="glass-card project-card">
+                    <div class="card-tag">STEP 8</div>
+                    <h3>Business Plan</h3>
+                    <p>Finalizing your strategy to attract investors.</p>
+                    <a href="{{ url_for('lesson8') }}" class="btn-main">START</a>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

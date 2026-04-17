@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>S&U - Settings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="investor-screen">
+    <aside class="side-navigation">
+        <div class="nav-top">
+            <a href="/role" class="nav-btn"><i class="fa-solid fa-house"></i></a>
+            <a href="/settings" class="nav-btn active"><i class="fa-solid fa-sliders"></i></a>
+            <a href="/notifications" class="nav-btn"><i class="fa-solid fa-bell"></i></a>
+        </div>
+        <div class="nav-bottom">
+            <a href="/support" class="nav-btn"><i class="fa-solid fa-headset"></i></a>
+        </div>
+    </aside>
+
+    <div class="brand-header-center">
+        <div class="brand-logo">S&U</div>
+    </div>
+    <div class="top-user-bar">
+        <div class="user-info">
+            <i class="fa-solid fa-circle-user"></i>
+            <span>{{ session.get('user_name', 'Guest') }}</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="glass-card-large animate-fade-in">
+            <h2 class="neon-text">System Settings</h2>
+            <div class="settings-grid">
+                <div class="setting-item">
+                    <label>Username</label>
+                    <input type="text" value="{{ session.get('user_name') }}" class="input-field" disabled>
+                </div>
+                <div class="setting-item">
+                    <label>Interface Language</label>
+                    <select class="input-field">
+                        <option>English (US)</option>
+                        <option>Russian</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label>Security Level</label>
+                    <div class="status-badge">High Protection Enabled</div>
+                </div>
+            </div>
+            <button class="btn-main" style="width: 100%; margin-top: 30px;">Save Configuration</button>
+        </div>
+    </div>
+</body>
+</html>

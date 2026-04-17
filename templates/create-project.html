@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&U | Curriculum</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=5.2">
+</head>
+
+<body class="investor-screen">
+
+    <div class="screen-wrapper">
+        <div class="user-profile-header">
+    <i class="fa-solid fa-circle-user"></i>
+    <span class="user-name">{{ session.get('user_name', 'Guest') }}</span>
+</div>
+        <header class="app-header-center">
+            <a href="{{ url_for('dashboard_startup') }}" class="btn-nav-block btn-left">
+                <i class="fa-solid fa-arrow-left"></i> BACK
+            </a>
+            
+            <div class="brand-logo-glowing">S&U</div>
+
+            <div class="btn-right" style="width: 120px;"></div>
+        </header>
+
+        <main class="centered-content">
+            <div class="glass-card curriculum-card animate-fade-in">
+                <div class="header-content">
+                    <div class="photo-box-glow">
+                        <i class="fa-solid fa-book-open-reader" style="font-size: 2rem;"></i>
+                    </div>
+                    <h1 class="title-gradient">Startup Curriculum</h1>
+                    <p class="subtitle" style="color: #b0b0b0; margin-bottom: 30px;">Master the essentials of building a successful business</p>
+                </div>
+
+                <div class="curriculum-body">
+                    <div class="curriculum-text">
+                        <div class="curriculum-section-box">
+                            <h3><i class="fa-solid fa-graduation-cap" style="color: #00ff9d;"></i> Module 1: Foundations</h3>
+                            <p>Defining your value proposition and market needs.</p>
+                        </div>
+
+                        <div class="curriculum-section-box">
+                            <h3><i class="fa-solid fa-chart-line" style="color: #00ff9d;"></i> Module 2: Growth Strategy</h3>
+                            <p>Planning your business model and scaling operations.</p>
+                        </div>
+                    </div>
+<a href="{{ url_for('curriculum') }}" class="btn-main-neon" style="text-decoration: none; display: block; text-align: center; margin-top: 20px;">
+    START LEARNING <i class="fa-solid fa-chevron-right"></i>
+</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

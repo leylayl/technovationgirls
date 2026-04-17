@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&U | Lesson 1: Identifying Problems</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=7.0">
+</head>
+<body class="investor-screen">
+
+    <div class="screen-wrapper">
+        <header class="app-header-center">
+            <a href="{{ url_for('curriculum') }}" class="btn-nav-block btn-left">
+                <i class="fa-solid fa-arrow-left"></i> BACK
+            </a>
+            <div class="brand-logo-glowing">S&U</div>
+            <div class="btn-right" style="width: 120px;"></div>
+        </header>
+
+        <main class="centered-content">
+            <div class="glass-card lesson-content-card animate-fade-in">
+                <div class="lesson-header">
+                    <span class="category-tag">Entrepreneurship 101</span>
+                    <h1 class="title-gradient">Identifying Problems</h1>
+                    <p class="subtitle">Step 1: Understanding your surroundings</p>
+                </div>
+
+                <div class="lesson-scroll-area">
+                    <section class="lesson-step">
+                        <div class="step-icon-glow"><i class="fa-solid fa-users"></i></div>
+                        <div class="step-text">
+                            <h3>Start with Communities</h3>
+                            <p>Every innovation begins with a need. The best place to look is within your own <strong>community</strong>. Every society has unmet needs waiting for a solution.</p>
+                        </div>
+                    </section>
+
+                    <div class="info-grid-lesson">
+                        <div class="info-box-mini">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            <h4>Geographic</h4>
+                            <p>People in the same neighborhood or city.</p>
+                        </div>
+                        <div class="info-box-mini">
+                            <i class="fa-solid fa-heart"></i>
+                            <h4>Interest-based</h4>
+                            <p>People sharing hobbies, goals, or passions.</p>
+                        </div>
+                    </div>
+
+                    <div class="pro-tip-box">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <p><strong>Pro Tip:</strong> Once you find a problem, <strong>categorize it</strong>. This helps in choosing the right tools to solve it.</p>
+                    </div>
+                    <div class="lesson-navigation" style="margin-top: 40px; display: flex; justify-content: flex-end;">
+    <a href="{{ url_for('lesson2') }}" class="btn-nav-block btn-next-lesson">
+        NEXT LESSON: 02 <i class="fa-solid fa-chevron-right"></i>
+    </a>
+</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&U - New Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=1.2">
+</head>
+<body>
+    <aside class="side-navigation">
+        <div class="nav-top">
+            <a href="{{ url_for('role_page') }}" class="nav-btn active" title="Home">
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="{{ url_for('settings') }}" class="nav-btn" title="Settings">
+                <i class="fa-solid fa-sliders"></i>
+            </a>
+            <a href="{{ url_for('notifications') }}" class="nav-btn" title="Notifications">
+                <i class="fa-solid fa-bell"></i>
+            </a>
+        </div>
+
+        <div class="nav-bottom">
+            <a href="{{ url_for('support') }}" class="nav-btn" title="Support">
+                <i class="fa-solid fa-headset"></i>
+            </a>
+            
+            <div class="system-indicator">
+                <div class="dot-active"></div>
+            </div>
+            
+            <button class="nav-btn ghost-mode">
+                <i class="fa-solid fa-ghost"></i>
+            </button>
+        </div>
+    </aside>
+    <div class="top-user-bar">
+    <div class="user-info">
+        <i class="fa-solid fa-user-astronaut"></i>
+        <span>{{ session.get('user_name', 'Guest') }}</span>
+    </div>
+    
+    <a href="{{ url_for('logout') }}" class="logout-link">
+        <i class="fa-solid fa-right-from-bracket"></i> Exit
+    </a>
+</div>
+    <div class="brand-logo">S&U</div>
+
+    <div class="container">
+        <div class="glass-card">
+            <header>
+                <h2>New Project</h2>
+                <p class="subtitle">Fill in the details to attract investors</p>
+            </header>
+
+            <form action="/next-step" method="POST">
+                <div class="photo-section">
+                    <div class="photo-circle">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <span style="font-size: 10px;">LOGO</span>
+                    </div>
+                    <label class="btn-back" style="cursor: pointer; display: block; margin-bottom: 20px;">
+                        <input type="file" hidden>
+                        Add Project Photo
+                    </label>
+                </div>
+
+                <input type="text" class="input-field" placeholder="Project Name" required>
+                
+                <textarea class="input-field" placeholder="Short description" rows="3"></textarea>
+
+                <div style="display: flex; gap: 10px;">
+                    <input type="number" class="input-field" placeholder="Budget ($)">
+                    <input type="text" class="input-field" placeholder="Equity (%)">
+                </div>
+
+                <select class="input-field">
+                    <option value="" disabled selected>Select Industry</option>
+                    <option>Technology</option>
+                    <option>Ecology</option>
+                    <option>Healthcare</option>
+                </select>
+
+                <input type="text" class="input-field" placeholder="Link to Business Plan (PDF)">
+
+                <button type="submit" class="btn-main">
+                    CONTACT INVESTOR
+                </button>
+            </form>
+
+            <a href="/role" class="btn-back">← Back</a>
+        </div>
+    </div>
+</body>
+</html>

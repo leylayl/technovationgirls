@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&U - Upload Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=1.2">
+    <style>
+        /* Улучшаем внешний вид select */
+        select.input-field {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            cursor: pointer;
+        }
+        select.input-field option {
+            background: #05220e;
+            color: #fff;
+        }
+        .file-name-display {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: var(--neon-mint, #00ffc8);
+        }
+    </style>
+</head>
+<body class="investor-screen"> <aside class="side-navigation">
+        <div class="nav-top">
+            <a href="{{ url_for('role_page') }}" class="nav-btn active" title="Home">
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="{{ url_for('settings') }}" class="nav-btn" title="Settings">
+                <i class="fa-solid fa-sliders"></i>
+            </a>
+            <a href="{{ url_for('notifications') }}" class="nav-btn" title="Notifications">
+                <i class="fa-solid fa-bell"></i>
+            </a>
+        </div>
+        <div class="nav-bottom">
+            <a href="{{ url_for('support') }}" class="nav-btn" title="Support">
+                <i class="fa-solid fa-headset"></i>
+            </a>
+            <div class="system-indicator"><div class="dot-active"></div></div>
+            <button class="nav-btn ghost-mode"><i class="fa-solid fa-ghost"></i></button>
+        </div>
+    </aside>
+
+    <div class="top-user-bar">
+        <div class="user-info">
+            <i class="fa-solid fa-user-astronaut"></i>
+            <span>{{ session.get('user_name', 'Founder') }}</span>
+        </div>
+        <a href="{{ url_for('logout') }}" class="logout-link"><i class="fa-solid fa-right-from-bracket"></i> Exit</a>
+    </div>
+
+    <div class="brand-logo" style="text-align: center; letter-spacing: 10px; margin-top: 20px;">S&U</div>
+
+    <div class="container">
+        <div class="glass-card animate-fade-in" style="max-width: 600px; margin: 40px auto;">
+            <header style="text-align: center; margin-bottom: 30px;">
+                <h2 class="neon-text">Upload Project</h2>
+                <p class="subtitle">Mission: Launch your startup to the stars</p>
+            </header>
+
+            <form action="/submit-upload" method="POST" enctype="multipart/form-data">
+                
+                <div class="photo-section" style="text-align: center; margin-bottom: 30px;">
+                    <div class="photo-circle" style="border: 2px dashed #00ffc8; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin: 0 auto 15px;">
+                        <i class="fa-solid fa-file-pdf" style="font-size: 30px; color: #00ffc8;"></i>
+                    </div>
+                    <label class="btn-main-outline" style="cursor: pointer; display: inline-block; padding: 10px 20px; border: 1px solid #00ffc8; border-radius: 8px; color: #00ffc8;">
+                        <input type="file" name="project_file" id="fileInput" hidden required accept=".pdf,.pptx">
+                        <span id="fileLabel">Choose File (PDF/PPTX)</span>
+                    </label>
+                    <span id="fileName" class="file-name-display"></span>
+                </div>
+
+                <input type="text" name="project_title" class="input-field" placeholder="Project Name" required style="width: 100%; margin-bottom: 15px;">
+                
+                <textarea name="summary" class="input-field" placeholder="Brief summary of the project" rows="3" style="width: 100%; margin-bottom: 15px;"></textarea>
+
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <input type="number" name="funding_goal" class="input-field" placeholder="Funding Goal ($)" style="flex: 1;">
+                    <select name="stage" class="input-field" style="flex: 1;">
+                        <option value="" disabled selected>Project Stage</option>
+                        <option value="Idea">Idea</option>
+                        <option value="MVP">MVP</option>
+                        <option value="Scaling">Scaling</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-main-neon" style="width: 100%; padding: 15px; font-weight: bold;">
+                    UPLOAD AND CONTINUE
+                </button>
+            </form>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="{{ url_for('dashboard_startup') }}" class="btn-back" style="text-decoration: none; color: rgba(255,255,255,0.5);">← Back to Dashboard</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Скрипт для отображения имени выбранного файла
+        const fileInput = document.getElementById('fileInput');
+        const fileNameDisplay = document.getElementById('fileName');
+        const fileLabel = document.getElementById('fileLabel');
+
+        fileInput.addEventListener('change', function() {
+            if (this.files && this.files.length > 0) {
+                fileNameDisplay.textContent = "Selected: " + this.files[0].name;
+                fileLabel.textContent = "Change File";
+            }
+        });
+    </script>
+</body>
+</html>

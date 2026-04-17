@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Plan | S&U Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* ПАЛИТРА СО СКРИНШОТА (ЗЕЛЕНЫЙ ФОН) */
+        :root {
+            --neon-mint: #00ffc8; 
+            --gold-accent: #ffd700;
+            /* Глубокий темно-зеленый (не черный!) */
+            --bg-dark-green: radial-gradient(circle at center, #05220e 0%, #010a05 100%);
+        }
+
+        body {
+            background: #010a05 !important;
+            background-image: var(--bg-dark-green) !important;
+            background-attachment: fixed;
+            color: white !important;
+            font-family: 'Segoe UI', Roboto, sans-serif !important;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* ШАПКА */
+        .app-header {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            padding: 20px 40px !important;
+            background: rgba(0, 0, 0, 0.4) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 255, 200, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-button {
+            color: white !important;
+            text-decoration: none !important;
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            padding: 10px 20px !important;
+            border-radius: 8px !important;
+            font-size: 0.85rem !important;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .finish-glow {
+            background: var(--gold-accent) !important;
+            color: black !important;
+            font-weight: 800 !important;
+            border: none !important;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4) !important;
+        }
+
+        .app-logo {
+            font-weight: 900;
+            letter-spacing: 5px;
+            color: white;
+            text-shadow: 0 0 15px white;
+        }
+
+        /* ОСНОВНОЙ КОНТЕЙНЕР */
+        .main-screen {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            min-height: calc(100vh - 80px);
+            padding: 40px 20px;
+        }
+
+        .lesson-container {
+            /* Стекло с легким зеленым отливом */
+            background: rgba(255, 255, 255, 0.02) !important;
+            border: 1px solid rgba(0, 255, 200, 0.15) !important; 
+            backdrop-filter: blur(25px) !important;
+            border-radius: 25px !important;
+            padding: 50px !important;
+            max-width: 1000px !important;
+            width: 100% !important;
+            text-align: center !important;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7) !important;
+        }
+
+        .page-title {
+            color: var(--neon-mint) !important;
+            font-size: 2.2rem !important;
+            text-transform: uppercase !important;
+            text-shadow: 0 0 20px rgba(0, 255, 200, 0.4) !important;
+            margin-bottom: 10px !important;
+        }
+
+        .lesson-subtitle {
+            color: rgba(255, 255, 255, 0.6) !important;
+            margin-bottom: 40px !important;
+        }
+
+        /* ИНТРО */
+        .business-plan-intro {
+            background: rgba(255, 215, 0, 0.05) !important;
+            border: 1px dashed rgba(255, 215, 0, 0.2) !important;
+            border-radius: 15px !important;
+            padding: 25px !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 20px !important;
+            margin-bottom: 40px !important;
+            text-align: left !important;
+        }
+
+        .business-plan-intro i {
+            font-size: 3rem !important;
+            color: var(--gold-accent) !important;
+        }
+
+        /* СЕТКА ПЛАНА */
+        .plan-steps-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)) !important;
+            gap: 25px !important;
+            margin-bottom: 40px !important;
+        }
+
+        .plan-card {
+            background: rgba(255, 255, 255, 0.03) !important;
+            border: 1px solid rgba(255, 255, 255, 0.05) !important;
+            border-radius: 20px !important;
+            padding: 30px !important;
+            position: relative !important;
+            text-align: left !important;
+            transition: 0.3s !important;
+        }
+
+        .plan-card:hover {
+            border-color: var(--neon-mint) !important;
+            background: rgba(0, 255, 200, 0.05) !important;
+        }
+
+        .plan-num {
+            position: absolute !important;
+            top: 15px !important;
+            right: 20px !important;
+            font-size: 3rem !important;
+            font-weight: 900 !important;
+            color: rgba(255, 215, 0, 0.1) !important;
+        }
+
+        .plan-card h3 {
+            color: var(--gold-accent) !important;
+            margin-bottom: 10px !important;
+        }
+
+        /* ФИНАЛЬНЫЙ ТАСК */
+        .final-task {
+            background: rgba(0, 255, 200, 0.05) !important;
+            border-left: 5px solid var(--neon-mint) !important;
+            padding: 25px !important;
+            border-radius: 0 15px 15px 0 !important;
+            text-align: left !important;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            .plan-steps-grid { grid-template-columns: 1fr !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="app-header">
+        <a href="{{ url_for('curriculum') }}" class="nav-button">
+            <i class="fa-solid fa-chevron-left"></i> Academy
+        </a>
+        <div class="app-logo">S&U</div>
+        <a href="{{ url_for('certificate') }}" class="nav-button finish-glow">
+            Finish Course <i class="fa-solid fa-trophy"></i>
+        </a>
+    </header>
+
+    <main class="main-screen">
+        <div class="lesson-container animate-fade-in">
+            <h1 class="page-title">LESSON 08: BUSINESS PLAN</h1>
+            <p class="lesson-subtitle">Your roadmap to a successful and sustainable startup.</p>
+
+            <div class="business-plan-intro">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+                <p>A <strong>Business Plan</strong> is a formal document that defines your goals and how you will achieve them. It's what you show to partners and investors.</p>
+            </div>
+
+            <div class="plan-steps-grid">
+                <div class="plan-card">
+                    <div class="plan-num">1</div>
+                    <h3>Executive Summary</h3>
+                    <p>A brief overview of your startup's mission, vision, and the core problem you are solving.</p>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-num">2</div>
+                    <h3>Market Analysis</h3>
+                    <p>Detailed research on your target audience and the competitors you identified in earlier lessons.</p>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-num">3</div>
+                    <h3>Operations Plan</h3>
+                    <p>Technical workflow of your app and the list of strategic partners required for launch.</p>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-num">4</div>
+                    <h3>Financial Plan</h3>
+                    <p>Projected costs, funding requirements, and your strategy for reaching profitability.</p>
+                </div>
+            </div>
+
+            <div class="final-task">
+                <h3 style="color: var(--neon-mint); margin-bottom: 10px;">
+                    <i class="fa-solid fa-star"></i> Final Task
+                </h3>
+                <p>Combine all your notes, research, and tasks from Lesson 01 to 07 into one professional Business Plan document.</p>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

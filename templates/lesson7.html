@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Statement | S&U</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* ОСНОВНЫЕ ЦВЕТА ИЗ 5-6 УРОКОВ */
+        :root {
+            --neon-mint: #00ffc8; 
+            --gold-accent: #ffd700;
+            --bg-dark: #020502; /* Тот самый темно-зеленый */
+        }
+
+        body {
+            background-color: var(--bg-dark) !important;
+            color: white !important;
+            font-family: 'Segoe UI', sans-serif !important;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ШАПКА */
+        .app-header {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            padding: 20px 40px !important;
+            background: rgba(0, 0, 0, 0.5) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-button {
+            color: white !important;
+            text-decoration: none !important;
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            padding: 8px 15px !important;
+            border-radius: 8px !important;
+            font-size: 0.8rem !important;
+            text-transform: uppercase;
+        }
+
+        .app-logo {
+            font-weight: 900;
+            letter-spacing: 5px;
+            color: white;
+            text-shadow: 0 0 15px white;
+        }
+
+        /* КОНТЕЙНЕР */
+        .main-screen {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            min-height: calc(100vh - 80px);
+            padding: 20px;
+        }
+
+        .statement-container {
+            background: rgba(255, 255, 255, 0.03) !important;
+            backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            border-radius: 20px !important;
+            padding: 50px !important;
+            max-width: 900px !important;
+            width: 100% !important;
+            text-align: center !important;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        /* ЗАГОЛОВОК */
+        .page-title {
+            color: var(--neon-mint) !important;
+            font-size: 2.2rem !important;
+            text-transform: uppercase !important;
+            margin-bottom: 30px !important;
+            text-shadow: 0 0 20px rgba(0, 255, 200, 0.3) !important;
+        }
+
+        /* БЛОК С ТЕКСТОМ (Paper Box) */
+        .paper-box {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            background: rgba(255, 255, 255, 0.04) !important;
+            border: 1px solid rgba(255, 255, 255, 0.05) !important;
+            border-radius: 15px !important;
+            padding: 30px !important;
+            margin-bottom: 40px !important;
+            text-align: left !important;
+            gap: 30px;
+        }
+
+        .paper-content p {
+            color: rgba(255, 255, 255, 0.8) !important;
+            line-height: 1.6 !important;
+            font-size: 1.05rem !important;
+            margin-bottom: 15px;
+        }
+
+        .paper-content strong {
+            color: var(--gold-accent) !important;
+        }
+
+        /* ИКОНКА ПЕРА */
+        .paper-illustration i {
+            font-size: 4rem !important;
+            color: var(--gold-accent) !important;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3) !important;
+            opacity: 0.8;
+        }
+
+        /* НИЖНЯЯ СЕКЦИЯ */
+        .guide-text {
+            color: rgba(255, 255, 255, 0.5) !important;
+            margin-bottom: 20px !important;
+            font-style: italic;
+        }
+
+        .write-btn {
+            background: var(--neon-mint) !important;
+            color: black !important;
+            border: none !important;
+            padding: 15px 40px !important;
+            border-radius: 12px !important;
+            font-weight: 800 !important;
+            text-transform: uppercase !important;
+            cursor: pointer !important;
+            box-shadow: 0 0 20px rgba(0, 255, 200, 0.4) !important;
+            transition: 0.3s !important;
+            font-size: 1rem !important;
+        }
+
+        .write-btn:hover {
+            box-shadow: 0 0 30px rgba(0, 255, 200, 0.6) !important;
+            transform: scale(1.03);
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="app-header">
+        <a href="{{ url_for('curriculum') }}" class="nav-button">
+            <i class="fa-solid fa-chevron-left"></i> Back
+        </a>
+        <div class="app-logo">S&U</div>
+        <a href="{{ url_for('lesson8') }}" class="nav-button">
+            Next <i class="fa-solid fa-graduation-cap"></i>
+        </a>
+    </header>
+
+    <main class="main-screen">
+        <div class="statement-container animate-fade-in">
+            <h1 class="page-title">PROBLEM STATEMENT</h1>
+            
+            <div class="paper-box">
+                <div class="paper-content">
+                    <p>Now that you have an idea for your project, you can start working on your problem statement.</p>
+                    <p><strong>A problem statement</strong> is a brief piece of writing that explains the problem that your team is addressing.</p>
+                    <p>Later you will add your solution, but let's stick to stating the problem for now.</p>
+                </div>
+                <div class="paper-illustration">
+                    <i class="fa-solid fa-pen-nib"></i>
+                </div>
+            </div>
+
+            <div class="action-section">
+                <p class="guide-text">Ready to define your startup's core?</p>
+                <button class="write-btn" onclick="window.location.href='{{ url_for('lesson8') }}'">
+                    START WRITING <i class="fa-solid fa-pencil"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

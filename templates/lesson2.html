@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&U | Lesson 2: Researching Problems</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=7.3">
+</head>
+<body class="investor-screen">
+
+    <div class="screen-wrapper">
+        <header class="app-header-center">
+            <a href="{{ url_for('lesson1') }}" class="btn-nav-block btn-left">
+                <i class="fa-solid fa-arrow-left"></i> LESSON 01
+            </a>
+            <div class="brand-logo-glowing">S&U</div>
+            <div class="btn-right" style="width: 120px;"></div>
+        </header>
+
+        <main class="centered-content">
+            <div class="glass-card lesson-content-card animate-fade-in lime-theme">
+                <div class="lesson-header">
+                    <span class="category-tag">Market Research</span>
+                    <h1 class="title-gradient">Researching Problems</h1>
+                    <p class="subtitle">Step 2: Deep dive into the issue</p>
+                </div>
+
+                <div class="lesson-scroll-area">
+                    <section class="lesson-step">
+                        <div class="step-icon-glow"><i class="fa-solid fa-microscope"></i></div>
+                        <div class="step-text">
+                            <h3>Methodical Research</h3>
+                            <p>Once a problem is identified, you must prove its existence. Research helps you understand how many people face this difficulty and how they currently navigate it.</p>
+                        </div>
+                    </section>
+
+                    <div class="info-grid-lesson">
+                        <div class="info-box-mini">
+                            <i class="fa-solid fa-comments"></i>
+                            <h4>Interviews</h4>
+                            <p>Conduct in-depth interviews with potential customers to hear their personal experiences.</p>
+                        </div>
+                        <div class="info-box-mini">
+                            <i class="fa-solid fa-chart-pie"></i>
+                            <h4>Surveys</h4>
+                            <p>Gather quantitative data through online forms to see the scale of the problem.</p>
+                        </div>
+                    </div>
+
+                    <div class="pro-tip-box">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <p><strong>Pro Tip:</strong> Avoid asking leading questions. Let people describe their pain points in their own words without bias.</p>
+                    </div>
+
+                    <div class="lesson-navigation" style="margin-top: 40px; display: flex; justify-content: space-between;">
+                        <a href="{{ url_for('lesson1') }}" class="btn-nav-block" style="position:relative; transform:none; left:0; opacity:0.8;">
+                            <i class="fa-solid fa-chevron-left"></i> PREVIOUS
+                        </a>
+                        <a href="{{ url_for('curriculum') }}" class="btn-main-neon" style="text-decoration: none; padding: 12px 25px; font-size: 0.9rem;">
+                            NEXT LESSON: 03 <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

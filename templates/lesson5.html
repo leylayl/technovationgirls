@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&U | Lesson 5: Partnering with Orgs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=8.2">
+</head>
+<body class="investor-screen">
+
+    <div class="screen-wrapper">
+        <header class="app-header-center">
+            <a href="{{ url_for('curriculum') }}" class="btn-nav-block btn-left">
+                <i class="fa-solid fa-arrow-left"></i> СURRICULUM
+            </a>
+            <div class="brand-logo-glowing">S&U</div>
+            <div class="btn-right" style="width: 120px;"></div>
+        </header>
+
+        <main class="centered-content">
+            <div class="glass-card lesson-content-card animate-fade-in gold-theme">
+                
+                <div class="lesson-header">
+                    <span class="category-tag" style="color: #ffd700;">Partnership Stage</span>
+                    <h1 class="title-gradient">Partnering with Orgs</h1>
+                    <p class="subtitle">Building a network of strategic allies</p>
+                </div>
+
+                <div class="lesson-scroll-area">
+                    <div class="pro-tip-box" style="border-left-color: #ffd700; background: rgba(255, 215, 0, 0.05); margin-bottom: 30px;">
+                        <i class="fa-solid fa-handshake-angle" style="color: #ffd700;"></i>
+                        <p><strong>Partners are:</strong> People or companies who work together to achieve common goals.</p>
+                    </div>
+
+                    <div class="info-grid-lesson">
+                        <div class="info-box-mini">
+                            <i class="fa-solid fa-people-arrows"></i>
+                            <h4>Deep Connection</h4>
+                            <p>A partner is more than just someone who is helping you with a project; they are invested in the outcome.</p>
+                        </div>
+
+                        <div class="info-box-mini">
+                            <i class="fa-solid fa-gift"></i>
+                            <h4>Mutual Value</h4>
+                            <p>They help you meet your goals, but they must also get something valuable in exchange.</p>
+                        </div>
+
+                        <div class="info-box-mini">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                            <h4>Tech Access</h4>
+                            <p>One way to reward partners is giving them the ability to use your premium app for free.</p>
+                        </div>
+
+                        <div class="info-box-mini">
+                            <i class="fa-solid fa-sack-dollar"></i>
+                            <h4>Incentives</h4>
+                            <p>Value can be financial, but it can also be through shared publicity or shared resources.</p>
+                        </div>
+                    </div>
+
+                    <div class="lesson-navigation" style="margin-top: 40px; display: flex; justify-content: space-between;">
+                        <a href="{{ url_for('lesson4') }}" class="btn-nav-block" style="position:relative; transform:none; left:0; opacity:0.8;">
+                            <i class="fa-solid fa-chevron-left"></i> PREVIOUS
+                        </a>
+                        <a href="{{ url_for('curriculum') }}" class="btn-main-neon" style="text-decoration: none; padding: 12px 25px; font-size: 0.9rem; border-color: #ffd700; color: #ffd700;">
+                            NEXT LESSON: 06 <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

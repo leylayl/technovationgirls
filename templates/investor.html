@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&U | Investor Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=5.2">
+    <style>
+        /* Дополнительные стили для интерактивности */
+        :root {
+            --neon-mint: #0cb974;
+            --gold-accent: #ffd700;
+        }
+
+        .search-container { margin: 30px 0; }
+        
+        .search-box-wrapper {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(12, 185, 116, 0.3);
+            border-radius: 50px;
+            padding: 12px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .search-box-wrapper:focus-within {
+            border-color: var(--neon-mint);
+            box-shadow: 0 0 15px rgba(12, 185, 116, 0.2);
+        }
+
+        .search-box-wrapper input {
+            background: none;
+            border: none;
+            color: white;
+            width: 100%;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        /* Карточка деталей */
+        .project-details-overlay {
+            display: none; 
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--gold-accent);
+            border-radius: 20px;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        .detail-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .detail-row i { color: var(--neon-mint); margin-top: 5px; }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn-view-more {
+            background: var(--neon-mint);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body class="investor-screen">
+
+    <aside class="side-navigation">
+        <div class="nav-group-top">
+            <a href="{{ url_for('role_page') }}" class="nav-btn active"><i class="fa-solid fa-house"></i></a>
+            <a href="{{ url_for('settings') }}" class="nav-btn"><i class="fa-solid fa-sliders"></i></a>
+            <a href="{{ url_for('notifications') }}" class="nav-btn"><i class="fa-solid fa-bell"></i></a>
+        </div>
+
+        <div class="nav-group-bottom">
+            <a href="{{ url_for('support') }}" class="nav-btn"><i class="fa-solid fa-headset"></i></a>
+            <div class="lang-tag">US</div>
+            <button class="nav-btn user-avatar-btn">
+                 <img src="https://ui-avatars.com/api/?name={{ session.get('user_name', 'U') }}&background=0cb974&color=fff" alt="User">
+            </button>
+        </div>
+    </aside>
+
+    <div class="screen-wrapper">
+        <div class="top-user-bar">
+            <div class="user-info">
+                <i class="fa-solid fa-user-astronaut"></i>
+                <span>{{ session.get('user_name', 'Guest') }}</span>
+            </div>
+            <a href="{{ url_for('logout') }}" class="logout-link"><i class="fa-solid fa-right-from-bracket"></i> Exit</a>
+        </div>
+
+        <header class="app-header-center">
+            <a href="{{ url_for('role_page') }}" class="btn-nav-block btn-left">
+                <i class="fa-solid fa-arrow-left"></i> BACK
+            </a>
+            <div class="brand-logo-glowing">S&U</div>
+            <a href="{{ url_for('investor_portfolio') }}" class="btn-nav-block btn-right">
+                PORTFOLIO <i class="fa-solid fa-chart-line"></i>
+            </a>
+        </header>
+
+        <main class="centered-content">
+            <div class="investor-header animate-fade-in">
+                <h1>Marketplace</h1>
+                <p class="subtitle">Search and fund the next big startup</p>
+            </div>
+
+            <div class="search-container animate-fade-in">
+                <div class="search-box-wrapper">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="projectSearch" placeholder="Search by name (e.g. Eco, AI)...">
+                </div>
+            </div>
+
+            <div id="searchResults" class="projects-grid animate-fade-in">
+                </div>
+
+            <div id="detailsBlock" class="project-details-overlay">
+                <h2 id="detName" class="title-gradient" style="margin-top: 0;">Project Name</h2>
+                
+                <div class="detail-row">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p id="detDesc" style="margin: 0; color: rgba(255,255,255,0.8);"></p>
+                </div>
+
+                <div style="display: flex; gap: 30px; margin-top: 20px;">
+                    <div>
+                        <small style="color: var(--gold-accent); display: block; margin-bottom: 5px;">FOUNDER</small>
+                        <span id="detFounder" style="font-weight: bold;"></span>
+                    </div>
+                    <div>
+                        <small style="color: var(--gold-accent); display: block; margin-bottom: 5px;">CURRENT STAGE</small>
+                        <span id="detStage" style="font-weight: bold;"></span>
+                    </div>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 25px 0;">
+
+                <button class="btn-main" style="width: 100%; padding: 15px;" onclick="alert('Inquiry sent to founder!')">
+                    <i class="fa-solid fa-paper-plane"></i> CONTACT FOUNDER
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('projectSearch');
+        const resultsBox = document.getElementById('searchResults');
+        const detailsBox = document.getElementById('detailsBlock');
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value;
+
+            if (query.length > 0) {
+                fetch(`/api/search_projects?q=${query}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        resultsBox.innerHTML = '';
+                        
+                        if (data.length === 0) {
+                            resultsBox.innerHTML = '<p style="color: gray;">No startups found...</p>';
+                            return;
+                        }
+
+                        data.forEach(p => {
+                            resultsBox.innerHTML += `
+                                <div class="glass-card project-card animate-fade-in">
+                                    <div class="project-info">
+                                        <h3>${p.name}</h3>
+                                        <p>${p.category}</p>
+                                    </div>
+                                    <button class="btn-view-more" onclick="showDetails('${p.name}', '${p.description}', '${p.founder}', '${p.stage}')">
+                                        VIEW INFO
+                                    </button>
+                                </div>
+                            `;
+                        });
+                    });
+            } else {
+                resultsBox.innerHTML = '';
+            }
+        });
+
+        function showDetails(name, desc, founder, stage) {
+            detailsBox.style.display = 'block';
+            document.getElementById('detName').innerText = name;
+            document.getElementById('detDesc').innerText = desc;
+            document.getElementById('detFounder').innerText = founder;
+            document.getElementById('detStage').innerText = stage;
+
+            detailsBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
+</body>
+</html>

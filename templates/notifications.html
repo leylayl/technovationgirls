@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>S&U - Notifications</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="investor-screen">
+    <aside class="side-navigation">
+        <div class="nav-top">
+            <a href="{{ url_for('role_page') }}" class="nav-btn active" title="Home">
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="{{ url_for('settings') }}" class="nav-btn" title="Settings">
+                <i class="fa-solid fa-sliders"></i>
+            </a>
+            <a href="{{ url_for('notifications') }}" class="nav-btn" title="Notifications">
+                <i class="fa-solid fa-bell"></i>
+            </a>
+        </div>
+
+        <div class="nav-bottom">
+            <a href="{{ url_for('support') }}" class="nav-btn" title="Support">
+                <i class="fa-solid fa-headset"></i>
+            </a>
+            
+            <div class="system-indicator">
+                <div class="dot-active"></div>
+            </div>
+            
+            <button class="nav-btn ghost-mode">
+                <i class="fa-solid fa-ghost"></i>
+            </button>
+        </div>
+    </aside>
+    <div class="container">
+        <div class="glass-card-large animate-fade-in">
+            <h2 class="neon-text">Activity Log</h2>
+            <div class="notification-list">
+                <div class="notif-item">
+                    <div class="notif-dot active"></div>
+                    <div class="notif-content">
+                        <strong>System Update</strong>
+                        <p>Welcome to S&U Ecosystem. Your profile is now active.</p>
+                        <span class="notif-time">Just now</span>
+                    </div>
+                </div>
+                <div class="notif-item">
+                    <div class="notif-dot"></div>
+                    <div class="notif-content">
+                        <strong>Security Alert</strong>
+                        <p>New login detected from your current IP.</p>
+                        <span class="notif-time">2 hours ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

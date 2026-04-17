@@ -1,0 +1,351 @@
+:root {
+    --neon-green: #4ade80;
+    --dark-bg: #050505;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--dark-bg);
+    /* Глубокий радиальный градиент для фона */
+    background: radial-gradient(circle at center, #0a1a0a 0%, #050505 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+}
+
+/* Эффект свечения за карточкой */
+.glow-bg {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(74, 222, 128, 0.1) 0%, transparent 70%);
+    filter: blur(100px);
+    z-index: 0;
+}
+
+.login-container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.brand-logo {
+    font-size: 48px;
+    font-weight: 900;
+    letter-spacing: 10px;
+    color: var(--neon-green);
+    margin-bottom: 30px;
+    text-shadow: 0 0 20px rgba(74, 222, 128, 0.5);
+}
+
+/* Стеклянная карточка */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px); /* Размытие заднего фона */
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 40px;
+    padding: 50px 40px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 
+                inset 0 0 20px rgba(255, 255, 255, 0.02);
+}
+
+.card-title {
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.card-subtitle {
+    font-size: 14px;
+    opacity: 0.6;
+    margin-bottom: 40px;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Кнопки */
+.btn {
+    padding: 18px;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.btn-primary {
+    background: var(--neon-green);
+    color: #050505;
+    border: none;
+    box-shadow: 0 0 20px rgba(74, 222, 128, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(74, 222, 128, 0.5);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--neon-green);
+    border: 2px solid rgba(74, 222, 128, 0.5);
+}
+
+.btn-outline:hover {
+    background: rgba(74, 222, 128, 0.05);
+    border-color: var(--neon-green);
+    transform: translateY(-3px);
+}
+:root {
+    --neon-green: #7cfc00; /* Яркий салатовый как на фото */
+    --dark-green-bg: #0a1a0a;
+    --input-bg: #f5ede3; /* Светло-кремовый цвет полей */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at center, #142b14 0%, #050505 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+}
+
+/* Эффект частиц и свечения на фоне */
+.glow-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(var(--neon-green) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.main-wrapper {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Стеклянная карточка */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(124, 252, 0, 0.3); /* Зеленоватая граница */
+    border-radius: 40px;
+    padding: 40px 60px;
+    width: 400px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5), 
+                inset 0 0 15px rgba(124, 252, 0, 0.1);
+}
+
+.card-title {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.card-subtitle {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 30px;
+}
+
+/* Поля ввода */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 12px;
+    border: none;
+    background-color: var(--input-bg);
+    font-size: 16px;
+    box-sizing: border-box;
+    color: #333;
+    outline: none;
+}
+
+/* Кнопка Next Step */
+.btn-next {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 12px;
+    border: none;
+    background-color: var(--neon-green);
+    color: black;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(124, 252, 0, 0.4);
+}
+
+.btn-next:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px var(--neon-green);
+}
+
+/* Кнопка Back */
+.btn-back {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    padding: 8px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn-back:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+}
+
+/* Плавное появление */
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #040d04;
+    background: radial-gradient(circle at center, #0a1f0a 0%, #040d04 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+.background-glow {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    background: rgba(74, 222, 128, 0.12);
+    filter: blur(120px);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 35px;
+    padding: 40px;
+    width: 400px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    outline: 1px solid rgba(74, 222, 128, 0.15);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 13px;
+    opacity: 0.6;
+    margin-bottom: 30px;
+}
+
+.input-field {
+    width: 100%;
+    background-color: #f5ede3; /* Кремовый цвет из твоих скринов */
+    border: none;
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: #333;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.button-wrapper {
+    margin-top: 15px;
+}
+
+.btn-next {
+    display: inline-block;
+    background-color: #f5ede3;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 35px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+.btn-next:hover {
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+.btn-back {
+    display: inline-block;
+    margin-top: 25px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 13px;
+    padding: 7px 25px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+}
+
+.btn-back:hover {
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+}

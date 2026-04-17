@@ -1,0 +1,67 @@
+/* Полная очистка и настройка сайдбара */
+.side-navigation {
+    position: fixed !important;
+    left: 0;
+    top: 0;
+    width: 70px !important;
+    height: 100vh !important;
+    background: #050a05 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 20px 0 !important;
+    z-index: 9999 !important;
+    border-right: 1px solid rgba(12, 185, 116, 0.1) !important;
+}
+
+/* 1. Верхняя пружина (толкает всё вниз) */
+.nav-spacer {
+    flex: 1 !important;
+}
+
+/* 2. Центральный блок (БУДЕТ СТРОГО ПО ЦЕНТРУ) */
+.nav-center-group {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 35px !important;
+    flex: 0 !important; /* Не дает блоку растягиваться */
+}
+
+/* 3. Нижняя пружина + блок (прижимает к полу) */
+.nav-bottom-group {
+    flex: 1 !important; 
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important; /* Вот это спустит иконки в самый низ */
+    gap: 25px !important;
+    padding-bottom: 20px !important;
+}
+
+/* Кнопки и иконки */
+.nav-btn {
+    color: rgba(255, 255, 255, 0.4) !important;
+    font-size: 22px !important;
+    transition: 0.3s ease !important;
+    text-decoration: none !important;
+}
+
+.nav-btn.active, .nav-btn:hover {
+    color: #0cb974 !important;
+    filter: drop-shadow(0 0 8px #0cb974) !important;
+}
+
+/* Точка статуса */
+.dot-active {
+    width: 6px;
+    height: 6px;
+    background: #0cb974;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #0cb974;
+}
+
+/* СДВИГ КОНТЕНТА (чтобы страница не была под сайдбаром) */
+.screen-wrapper {
+    margin-left: 70px !important;
+    width: calc(100% - 70px) !important;
+    min-height: 100vh !important;
+}

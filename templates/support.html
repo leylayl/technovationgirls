@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>S&U - Support</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Стили для выпадающего списка */
+        select.input-field {
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: white;
+            border: 1px solid rgba(0, 255, 200, 0.2);
+        }
+        select.input-field option {
+            background: #010a05;
+            color: white;
+        }
+        /* Блок ответа системы */
+        #aiResponse {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(0, 255, 200, 0.05);
+            border: 1px solid #00ffc8;
+            text-align: left;
+            animation: fadeIn 0.5s ease-out;
+        }
+        .response-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #00ffc8;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="investor-screen">
+    <aside class="side-navigation">
+        <div class="nav-top">
+            <a href="{{ url_for('role_page') }}" class="nav-btn active" title="Home">
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="{{ url_for('settings') }}" class="nav-btn" title="Settings">
+                <i class="fa-solid fa-sliders"></i>
+            </a>
+            <a href="{{ url_for('notifications') }}" class="nav-btn" title="Notifications">
+                <i class="fa-solid fa-bell"></i>
+            </a>
+        </div>
+
+        <div class="nav-bottom">
+            <a href="{{ url_for('support') }}" class="nav-btn" title="Support">
+                <i class="fa-solid fa-headset"></i>
+            </a>
+            <div class="system-indicator">
+                <div class="dot-active"></div>
+            </div>
+            <button class="nav-btn ghost-mode">
+                <i class="fa-solid fa-ghost"></i>
+            </button>
+        </div>
+    </aside>
+
+    <div class="container">
+        <div class="glass-card-large animate-fade-in">
+            <h2 class="neon-text">Contact Support</h2>
+            <p class="subtitle">How can we help your mission today?</p>
+            
+            <div class="support-form">
+                <div class="input-group">
+                    <label>Subject</label>
+                    <select id="supportSubject" class="input-field">
+                        <option value="" disabled selected>Select a topic...</option>
+                        <option value="investing">How to start investing?</option>
+                        <option value="security">Is my account secure?</option>
+                        <option value="payouts">When will I get my dividends?</option>
+                        <option value="bug">Technical issue / Bug report</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label>Message</label>
+                    <textarea id="supportMessage" class="input-field" rows="5" placeholder="Describe your issue in details..."></textarea>
+                </div>
+                
+                <button type="button" onclick="submitSupport()" class="btn-main" style="width: 100%;">
+                    <i class="fa-solid fa-paper-plane"></i> Send Request
+                </button>
+
+                <div id="aiResponse">
+                    <div class="response-header">
+                        <i class="fa-solid fa-robot"></i>
+                        <span>System Response:</span>
+                    </div>
+                    <p id="responseText" style="margin: 0; color: rgba(255,255,255,0.9); line-height: 1.5;"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function submitSupport() {
+        const subject = document.getElementById('supportSubject').value;
+        const message = document.getElementById('supportMessage').value;
+        const responseBlock = document.getElementById('aiResponse');
+        const responseText = document.getElementById('responseText');
+
+        if (!subject) {
+            alert("Please select a subject!");
+            return;
+        }
+
+        // Отправка данных на твой Python сервер
+        fetch('/api/support', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ subject: subject, message: message })
+        })
+        .then(res => res.json())
+        .then(data => {
+            // Плавное отображение ответа
+            responseBlock.style.display = 'block';
+            responseText.innerText = data.reply;
+            
+            // Очистка поля сообщения
+            document.getElementById('supportMessage').value = '';
+            
+            // Скролл к ответу
+            responseBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        })
+        .catch(err => {
+            console.error("Error:", err);
+            alert("Server error. Make sure app.py is running!");
+        });
+    }
+    </script>
+</body>
+</html>

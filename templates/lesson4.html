@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&U | Lesson 4: Selecting a Problem</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=8.1">
+</head>
+<body class="investor-screen">
+
+    <div class="screen-wrapper">
+        <header class="app-header-center">
+            <a href="{{ url_for('curriculum') }}" class="btn-nav-block btn-left">
+                <i class="fa-solid fa-arrow-left"></i> CURRICULUM
+            </a>
+            <div class="brand-logo-glowing">S&U</div>
+            <div class="btn-right" style="width: 120px;"></div>
+        </header>
+
+        <main class="centered-content">
+            <div class="glass-card lesson-content-card animate-fade-in mint-theme">
+                
+                <div class="lesson-header">
+                    <span class="category-tag" style="color: #00ffc8;">Selection Stage</span>
+                    <h1 class="title-gradient">CONSIDER IMPACT</h1>
+                    <p class="subtitle">How to choose the right problem to solve</p>
+                </div>
+
+                <div class="lesson-scroll-area">
+                    <div class="intro-text" style="margin-bottom: 30px; text-align: center; color: rgba(255,255,255,0.8);">
+                        <p>To consider the impact of solving problems, analyze these four critical elements:</p>
+                    </div>
+
+                    <div class="info-grid-lesson">
+                        <div class="info-box-mini">
+                            <i class="fa-solid fa-users-viewfinder"></i>
+                            <h4>Scale</h4>
+                            <p>Is it a big problem? Does it affect a significant number of people?</p>
+                        </div>
+
+                        <div class="info-box-mini">
+                            <i class="fa-solid fa-newspaper"></i>
+                            <h4>Publicity</h4>
+                            <p>Has the problem appeared in national or public news recently?</p>
+                        </div>
+
+                        <div class="info-box-mini">
+                            <i class="fa-solid fa-gears"></i>
+                            <h4>Innovation</h4>
+                            <p>Is there room for innovation? Are there already companies working on it?</p>
+                        </div>
+
+                        <div class="info-box-mini">
+                            <i class="fa-solid fa-building-columns"></i>
+                            <h4>Support</h4>
+                            <p>Are there national foundations or organizations interested in this issue?</p>
+                        </div>
+                    </div>
+
+                    <div class="pro-tip-box" style="border-left-color: #00ffc8; background: rgba(0, 255, 200, 0.05);">
+                        <i class="fa-solid fa-bullseye" style="color: #00ffc8;"></i>
+                        <p><strong>Note:</strong> High impact means your solution can change many lives, making it more attractive to investors.</p>
+                    </div>
+
+                    <div class="lesson-navigation" style="margin-top: 40px; display: flex; justify-content: space-between;">
+                        <a href="{{ url_for('lesson3') }}" class="btn-nav-block" style="position:relative; transform:none; left:0; opacity:0.8;">
+                            <i class="fa-solid fa-chevron-left"></i> PREVIOUS
+                        </a>
+                        <a href="{{ url_for('curriculum') }}" class="btn-main-neon" style="text-decoration: none; padding: 12px 25px; font-size: 0.9rem; border-color: #00ffc8; color: #00ffc8;">
+                            NEXT LESSON: 05 <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

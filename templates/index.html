@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&U  | Authorization</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Специфические стили только для этой страницы */
+        
+        .welcome-layout {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, #1a1a2e 0%, #080810 100%);
+            overflow: hidden;
+        }
+
+        .auth-card {
+            text-align: center;
+            width: 100%;
+            max-width: 420px;
+            animation: fadeInCard 1s ease-out;
+        }
+
+        /* Стиль для твоего логотипа */
+        .brand-logo-img {
+            max-width: 120px; /* Размер логотипа (подбери под свой) */
+            height: auto;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5)); /* Тень для объема */
+        }
+
+        .platform-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 60px;
+            font-weight: 300;
+        }
+
+        .lang-select-title {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .lang-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        /* Строгая кнопка в стиле "Золотого Яблока" (премиальный минимализм) */
+        .btn-lang-premium {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 400;
+        }
+
+        .btn-lang-premium:hover {
+            background: #ffffff; /* При наведении - полностью белая */
+            color: #000000;      /* Текст - черный */
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        @keyframes fadeInCard {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="welcome-layout">
+
+    <div class="glass-card auth-card">
+        <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" class="brand-logo-img">
+        <div class="platform-title">
+            Starts & Ups
+        </div>
+
+        <div class="lang-select-title">Authorization</div>
+
+        <div class="lang-options">
+            <a href="/register" class="btn-lang-premium">Русский Язык</a>
+            <a href="/register" class="btn-lang-premium">English Language</a>
+            <a href="/register" class="btn-lang-premium">Türkmen Dili</a>
+        </div>
+        
+        <p style="margin-top: 50px; font-size: 10px; opacity: 0.2; letter-spacing: 1px;">
+            PLATFORM VERSION 2.1 &copy; 2026 S&U
+        </p>
+    </div>
+
+</body>
+</html>
