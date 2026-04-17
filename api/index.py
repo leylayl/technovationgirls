@@ -1,6 +1,8 @@
 from flask import Flask, render_template, url_for, session, request, redirect, jsonify
 
-app = Flask(__name__)
+app = Flask(__name__, 
+            template_folder='../templates', 
+            static_folder='../static')
 app.secret_key = 'any_secret_string_123'
 
 # В начале файла создаем список для хранения проектов стартапера
